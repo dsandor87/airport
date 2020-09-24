@@ -1,7 +1,7 @@
 class Plane {
-  constructor({ name, airport }) {
+  constructor({ name }) {
     this.name = name
-    this.destination = airport
+    this.destination = undefined
     this.bags = []
     this.passanger = []
   }
