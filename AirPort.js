@@ -1,12 +1,14 @@
 class AirPort {
   static airports = []
+  name = ''
+  planes = []
 
   constructor(name) {
     this.name = name
-    this.planes = []
     this.constructor.airports.push(this)
   }
   addPlane(plane) {
+    plane.setLocation(this.name)
     this.planes.push(plane)
   }
 

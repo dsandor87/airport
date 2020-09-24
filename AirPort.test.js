@@ -22,7 +22,7 @@ describe('Airport', function () {
     const plane1 = new Plane('flyrider')
     const [LHR, LAX] = Airport.airports
     LHR.addPlane(plane1)
-    expect(plane1.location).toBe('LHR')
+    expect(plane1.location).toEqual('LHR')
     plane1.setDestination('LAX')
     LHR.takeOff(plane1)
     expect(LHR.planes.length).toBe(0)
