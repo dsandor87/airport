@@ -56,6 +56,6 @@ describe('Airport', function () {
     person.addBag(hullluggage2)
     plane1.board(person2)
     airport1.addPlanes(plane2)
-    expect(airport1.planes.length).toBe(2)
+    expect(airport1.planes[0].passanger[0].name).toEqual('Sandor')
   })
 })
