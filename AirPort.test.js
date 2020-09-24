@@ -17,7 +17,6 @@ describe('Airport', function () {
     expect(Airport.airports.length).toBe(2)
   })
 
-  // Not working
   test('an Airport has planes', () => {
     const plane1 = new Plane('flyrider')
     const [LHR, LAX] = Airport.airports
