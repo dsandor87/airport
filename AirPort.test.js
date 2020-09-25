@@ -13,8 +13,10 @@ describe('Airport', function () {
   test('each airport knows about all the others', () => {
     expect(Airport.airports.length).toBe(1)
     const LAX = new Airport('LAX')
+    const BUD = new Airport('BUD')
+
     expect(Airport.airports).toBeTruthy()
-    expect(Airport.airports.length).toBe(2)
+    expect(Airport.airports.length).toBe(3)
   })
 
   test('an Airport has planes', () => {
@@ -101,5 +103,37 @@ describe('Airport', function () {
     plane2.board(person2)
     airport1.addPlane(plane2)
     expect(airport1.planes[0].passanger[0].bags.length).toBe(2)
+  })
+  // Callback
+
+  test('airports have a city', (done) => {
+    const CDG = new Airport('CDG')
+    CDG.getInfo((err, info) => {
+      console.log(info)
+      expect(err).toBeNull()
+      expect(info.country).toEqual('FR')
+      done()
+    })
+  })
+
+  // Promise
+
+  test('airports have a city', () => {
+    const CDG = new Airport('CDG')
+    return CDG.getInfo()
+      .then((info) => {
+        expect(info.city).toEqual('Paris')
+      })
+      .catch((err) => {
+        expect(err).toBeNull()
+      })
+  })
+
+  // Await
+
+  test('can get information like the city from an airport instance', async () => {
+    const CDG = new Airport('CDG')
+    const airport = await CDG.getInfo()
+    expect(airport.city).toEqual('Paris')
   })
 })
